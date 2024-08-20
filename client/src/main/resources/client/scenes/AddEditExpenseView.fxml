@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import io.github.palexdev.materialfx.dialogs.MFXGenericDialog?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="biggestPane" prefHeight="579.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.AddEditExpenseCtrl">
+    <children>
+        <HBox alignment="CENTER" layoutX="-2.0" layoutY="17.8" prefHeight="34.0" prefWidth="666.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="addEditExpenseTitle" text="Add/Edit Expense">
+                    <font>
+                        <Font name="Century Gothic Bold" size="26.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+      <HBox alignment="CENTER" layoutX="22.399999618530273" layoutY="11.199999809265137" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane>
+               <children>
+                    <VBox layoutX="103.19999885559082" layoutY="56.80000019073486" spacing="16.0">
+                        <children>
+                            <Label fx:id="whoPaidLabel" text="Who paid?">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="whatForLabel" text="What for?">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="howMuchLabel" text="How much?">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="whenLabel" text="When?">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="howToSplitLabel" text="How to split?">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </VBox>
+                  <VBox layoutX="316.800012588501" layoutY="56.80000019073486" spacing="12.0">
+                     <children>
+                          <JFXComboBox fx:id="whoPaidChoiceBox" prefHeight="26.0" prefWidth="200.0" />
+                          <TextField fx:id="whatForTextField" prefHeight="26.0" prefWidth="200.0" style="-fx-background-radius: 15;">
+                              <font>
+                                  <Font name="Century Gothic" size="12.0" />
+                              </font>
+                        </TextField>
+                        <HBox alignment="CENTER" spacing="7.0">
+                           <children>
+                                <TextField fx:id="howMuchTextField" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="120.0" style="-fx-background-radius: 15;">
+                                    <font>
+                                        <Font name="Century Gothic" size="12.0" />
+                                    </font>
+                              </TextField>
+                                <JFXComboBox fx:id="currencyChoiceBox" prefHeight="26.0" prefWidth="71.0" />
+                           </children>
+                        </HBox>
+                          <MFXDatePicker fx:id="whenDatePicker" floatMode="BORDER" style="-fx-background-radius: 15; -fx-border-radius: 15;" styleClass="mfx-date-picker" stylesheets="/DatePicker.css" />
+                     </children>
+                  </VBox>
+                    <Label fx:id="expenseTypeLabel" layoutX="103.19999885559082" layoutY="408.19999408721924" text="Expense Type">
+                        <font>
+                            <Font name="Century Gothic Bold" size="17.0" />
+                        </font>
+                    </Label>
+                    <JFXComboBox fx:id="expenseTypeChoiceBox" layoutX="327.20000648498535" layoutY="405.80000019073486" onAction="#changeTagSelection" prefHeight="26.0" prefWidth="189.0" />
+                    <HBox layoutX="485.800012588501" layoutY="463.80000019073486" spacing="10.0" />
+
+                   <MFXButton fx:id="editTagsButton" buttonType="RAISED" layoutX="525" layoutY="400" onAction="#showTagsDialog" prefHeight="38.0" prefWidth="100.0" rippleAnimateBackground="false" rippleAnimationSpeed="2.0" rippleColor="#f2b8b8" style="-fx-background-color: #ff725e; -fx-background-radius: 20; -fx-border-radius: 20;" text="Edit Tags" textFill="WHITE" />
+                   <MFXGenericDialog fx:id="editTagsDialog" actionsOrientation="VERTICAL" alwaysOnTop="true" headerText="Edit Tags" layoutX="50.0" layoutY="97.0" minHeight="153.0" minWidth="300.0" onClose="#closeEditTags" onMinimize="#closeEditTags" prefHeight="302.0" prefWidth="348.0" style="-fx-background-color: #ebf2f4; -fx-border-color: #ebf2f4;" styleClass="mfx-info-dialog" stylesheets="/Dialog.css" visible="false">
+                       <effect>
+                           <DropShadow height="47.905" offsetX="1.0" offsetY="1.0" radius="26.083750000000002" width="58.43">
+                               <color>
+                                   <Color red="0.9157894849777222" green="0.9090058207511902" blue="0.9090058207511902" />
+                               </color>
+                           </DropShadow>
+                       </effect>
+                       <center>
+                           <JFXListView fx:id="listViewTagsToEdit" prefHeight="257.0" prefWidth="353.0" />
+                       </center>
+                   </MFXGenericDialog>
+
+                   <VBox layoutX="102.60000038146973" layoutY="242.80000019073486" spacing="7.0">
+                     <children>
+                          <JFXRadioButton fx:id="equallyBetweenRadio" selected="true" text="Equally Between Everybody">
+                              <selectedColor>
+                                  <Color red="0.2705882489681244" green="0.3529411852359772" blue="0.3921568691730499" />
+                              </selectedColor>
+                              <font>
+                                  <Font name="Century Gothic" size="14.0" />
+                              </font>
+                              <toggleGroup>
+                                  <ToggleGroup fx:id="splitting" />
+                              </toggleGroup>
+                          </JFXRadioButton>
+                          <JFXRadioButton fx:id="onlySomePeopleRadio" text="Only Some People" toggleGroup="$splitting">
+                              <selectedColor>
+                                  <Color red="0.2705882489681244" green="0.3529411852359772" blue="0.3921568691730499" />
+                              </selectedColor>
+                              <font>
+                                  <Font name="Century Gothic" size="14.0" />
+                              </font>
+                          </JFXRadioButton>
+                          <MFXScrollPane fx:id="selectUsersScrollPane" pannable="true" prefHeight="102.0" prefWidth="218.0" style="-fx-background-color: #FFFFFF;" />
+                     </children>
+                  </VBox>
+                    <MFXButton fx:id="abortButton" buttonType="RAISED" layoutX="98.40000343322754" layoutY="456.80000019073486" onAction="#abort" prefHeight="38.0" prefWidth="206.0" rippleAnimateBackground="false" rippleAnimationSpeed="2.0" rippleBackgroundOpacity="0.0" rippleColor="WHITE" rippleRadius="0.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #ff725e; -fx-background-radius: 20; -fx-border-radius: 20;" text="Cancel">
+                        <font>
+                            <Font name="Century Gothic" size="14.0" />
+                        </font>
+                  </MFXButton>
+                    <MFXButton fx:id="addButton" buttonType="RAISED" layoutX="315.20000648498535" layoutY="456.80000019073486" onAction="#add" prefHeight="38.0" prefWidth="206.0" rippleAnimateBackground="false" rippleAnimationSpeed="2.0" rippleColor="#f2b8b8" style="-fx-background-color: #ff725e; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE">
+                        <font>
+                            <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                  </MFXButton>
+                      <JFXToggleButton fx:id="contrastToggle" layoutX="483.6000003814697" layoutY="508.80000019073486" prefHeight="58.0" prefWidth="158.0" style="-fx-background-color: #FFFFFF;" text="High contrast" wrapText="true">
+                          <font>
+                              <Font name="Century Gothic" size="12.0" />
+                          </font>
+                      </JFXToggleButton>
+                    <AnchorPane fx:id="backToStartScreenButton" onMouseClicked="#abort">
+                        <children>
+                            <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.62" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+                            <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../back.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

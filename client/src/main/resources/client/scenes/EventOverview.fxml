@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.dialogs.MFXGenericDialog?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="biggestAnchorPane" prefHeight="579.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;" stylesheets="/EventOverview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.EventOverviewCtrl">
+    <children>
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane>
+               <children>
+                    <AnchorPane fx:id="leftPane" layoutX="5.0" layoutY="56.0" maxHeight="473.0" maxWidth="454.0" prefHeight="473.0" prefWidth="454.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                        <children>
+                            <ListView fx:id="expenseHistory" prefHeight="238.0" prefWidth="421.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: red; -fx-background-color: blue;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+                            <ListView fx:id="expenseIncludingPerson" prefHeight="238.0" prefWidth="421.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: red;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+                            <ListView fx:id="expenseFromPerson" layoutX="12.8" layoutY="242.0" prefHeight="238.0" prefWidth="421.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-style: solid;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+                            <HBox alignment="CENTER_LEFT" layoutX="12.800000190734863" layoutY="5.0" spacing="10.0" AnchorPane.leftAnchor="13.0">
+                                <children>
+                                    <Label fx:id="participantsHeader" prefHeight="28.0" text="Participants">
+                                        <font>
+                                            <Font name="Century Gothic Bold" size="20.0" />
+                                        </font>
+                                    </Label>
+                              <Pane fx:id="iconsPane">
+                                 <children>
+                                          <ImageView fx:id="editParticipantIcon" fitHeight="35.0" fitWidth="35.0" focusTraversable="true" onMouseClicked="#showRemoveParticipantDialog" pickOnBounds="true" preserveRatio="true">
+                                              <image>
+                                                  <Image url="@../../edit_participant.png" />
+                                              </image>
+                                          </ImageView>
+                                          <ImageView fx:id="addParticipantIcon" fitHeight="35.0" fitWidth="35.0" focusTraversable="true" layoutX="45.600006103515625" onMouseClicked="#showAddParticipantPage" pickOnBounds="true" preserveRatio="true">
+                                              <image>
+                                                  <Image url="@../../add_participant.png" />
+                                              </image>
+                                          </ImageView>
+                                 </children>
+                              </Pane>
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" focusTraversable="true" layoutX="12.8" layoutY="179.0" maxWidth="421.0" prefHeight="38.0" prefWidth="421.0" spacing="12.0" AnchorPane.leftAnchor="13.0">
+                                <children>
+                                    <Label fx:id="allTab" alignment="CENTER" onMouseClicked="#showAllExpenses" prefHeight="34.0" prefWidth="89.0" style="-fx-background-radius: 15; -fx-background-color: #e5f1fd;" text="All" textAlignment="CENTER">
+                                        <font>
+                                            <Font name="Century Gothic" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="includingTab" alignment="CENTER" minWidth="119.0" onMouseClicked="#showExpensesIncludingAPerson" prefHeight="34.0" style="-fx-background-color: #d6edd9; -fx-background-radius: 15;" text="Including">
+                                        <font>
+                                            <Font name="Century Gothic" size="15.0" />
+                                        </font>
+                                        <padding>
+                                            <Insets left="6.0" right="6.0" />
+                                        </padding>
+                                    </Label>
+                                    <Label fx:id="fromTab" alignment="CENTER" minWidth="100.0" onMouseClicked="#showExpensesFromAPerson" prefHeight="34.0" style="-fx-background-color: #f6f0d8; -fx-background-radius: 15;" text="From">
+                                        <font>
+                                            <Font name="Century Gothic" size="15.0" />
+                                        </font>
+                                        <padding>
+                                            <Insets left="3.0" right="3.0" />
+                                        </padding>
+                                    </Label>
+                                </children>
+                            </HBox>
+                            <Label fx:id="listOfParticipantsText" alignment="TOP_LEFT" layoutX="18.0" layoutY="40.0" prefHeight="56.0" prefWidth="412.0" text="No participants." wrapText="true" AnchorPane.leftAnchor="13.0">
+                                <font>
+                                    <Font name="Century Gothic" size="18.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="expensesHeader" layoutX="18.0" layoutY="99.0" prefHeight="28.0" prefWidth="134.0" text="Expenses" AnchorPane.leftAnchor="13.0">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="20.0" />
+                                </font>
+                            </Label>
+                            <JFXComboBox fx:id="participantsChoiceBox" focusColor="#a1ceff" layoutX="20.0" layoutY="127.0" prefHeight="31.0" prefWidth="187.0" promptText="Participant" AnchorPane.leftAnchor="13.0" />
+                            <MFXGenericDialog fx:id="editEventDialog1" actionsOrientation="VERTICAL" alwaysOnTop="true" layoutX="50.0" layoutY="81.0" minHeight="153.0" minWidth="348.0" prefHeight="154.0" showAlwaysOnTop="false" style="-fx-background-color: #ebf2f4; -fx-border-color: #ebf2f4;" styleClass="mfx-info-dialog" stylesheets="/Dialog.css" visible="false">
+                                <bottom>
+                                    <JFXButton fx:id="modifyEventNameButton1" prefHeight="28.0" prefWidth="134.0" style="-fx-background-color: #000000; -fx-background-radius: 10;" text="Confirm" textFill="WHITE" BorderPane.alignment="CENTER">
+                                        <font>
+                                            <Font name="Century Gothic Bold" size="14.0" />
+                                        </font>
+                                    </JFXButton>
+                                </bottom>
+                                <center>
+                                    <MFXTextField fx:id="eventNameTextField1" minWidth="240.0" prefHeight="39.0" prefWidth="315.0" BorderPane.alignment="CENTER">
+                                        <font>
+                                            <Font name="Century Gothic" size="14.0" />
+                                        </font>
+                                    </MFXTextField>
+                                </center>
+                                <effect>
+                                    <DropShadow height="37.38" offsetX="1.0" offsetY="1.0" radius="23.4525" width="58.43">
+                                        <color>
+                                            <Color red="0.9157894849777222" green="0.9090058207511902" blue="0.9090058207511902" />
+                                        </color>
+                                    </DropShadow>
+                                </effect>
+                        </MFXGenericDialog>
+                            <Label fx:id="errorDelete" layoutX="248.0" layoutY="2.0" maxWidth="187.0" prefHeight="41.0" prefWidth="187.0" text="Please settle the debts first!" textFill="#ff3636" wrapText="true">
+                                <font>
+                                    <Font name="Century Gothic" size="14.0" />
+                                </font>
+                            </Label>
+            
+                            <MFXGenericDialog fx:id="removeParticipantDialog" actionsOrientation="VERTICAL" alwaysOnTop="true" headerText="Edit/Remove Participant:" layoutX="50.0" layoutY="97.0" minHeight="153.0" minWidth="300.0" onClose="#closeRemoveParticipant" onMinimize="#closeRemoveParticipant" prefHeight="302.0" prefWidth="348.0" showAlwaysOnTop="false" style="-fx-background-color: #ebf2f4; -fx-border-color: #ebf2f4;" styleClass="mfx-info-dialog" stylesheets="/Dialog.css" visible="false">
+                                <effect>
+                                    <DropShadow height="47.905" offsetX="1.0" offsetY="1.0" radius="26.083750000000002" width="58.43">
+                                        <color>
+                                            <Color red="0.9157894849777222" green="0.9090058207511902" blue="0.9090058207511902" />
+                                        </color>
+                                    </DropShadow>
+                                </effect>
+                                <center>
+                                    <JFXListView fx:id="listViewNamesToRemove" prefHeight="257.0" prefWidth="353.0" BorderPane.alignment="CENTER" />
+                                </center>
+                            </MFXGenericDialog>
+                        </children>
+                        <effect>
+                            <DropShadow height="49.08" offsetX="2.0" offsetY="2.0" radius="19.945" spread="0.06" width="32.7">
+                                <color>
+                                    <Color red="0.8343859910964966" green="0.8559648990631104" blue="0.8631578683853149" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                    </AnchorPane>
+                    <HBox alignment="CENTER_RIGHT" layoutX="476.0" layoutY="524.0" prefHeight="58.0" prefWidth="171.0" spacing="10.0">
+                        <children>
+                            <JFXToggleButton fx:id="contrastToggle" prefHeight="58.0" prefWidth="158.0" style="-fx-background-color: #FFFFFF;" text="High contrast" wrapText="true">
+                                <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="contrast" />
+                           </toggleGroup>
+                            </JFXToggleButton>
+                        </children>
+                  </HBox>
+                    <ImageView fx:id="currentFlag" fitHeight="19.0" fitWidth="36.0" layoutX="15.0" layoutY="551.0" onMouseClicked="#showLanguagesDialog" pickOnBounds="true" preserveRatio="true" />
+                  <Pane fx:id="currencyImagePane" layoutX="59.0" layoutY="550.0" prefHeight="19.0" prefWidth="35.0">
+                     <children>
+                         <ImageView fx:id="currencyPicture" fitHeight="19.0" fitWidth="39.0" onMouseClicked="#showCurrenciesDialog" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+                    <JFXListView fx:id="listViewLanguages" depth="5" layoutX="49.0" layoutY="493.0" prefHeight="82.0" prefWidth="194.0" style="-fx-border-color: #FFFFFF;" verticalGap="10.0">
+                        <effect>
+                            <DropShadow offsetX="1.0" offsetY="1.0" radius="13.51" width="35.04">
+                                <color>
+                                    <Color red="0.8736842274665833" green="0.8704483509063721" blue="0.8704483509063721" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                  </JFXListView>
+
+                    <Button fx:id="sendInvitesButton" layoutX="483.6000061035156" layoutY="57.0" onAction="#sendInvites" prefHeight="109.0" prefWidth="164.0" style="-fx-background-color: #d6edd9; -fx-background-radius: 15; -fx-border-radius: 15;" text="Send Invites">
+                        <font>
+                            <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                        <padding>
+                            <Insets top="28.0" />
+                        </padding>
+                  </Button>
+
+                   <ListView fx:id="listViewCurrencies" layoutX="93.0" layoutY="493.0" prefHeight="82.0" prefWidth="190.0" style="-fx-background-radius: 6;">
+                       <effect>
+                           <DropShadow height="18.66" offsetX="1.0" offsetY="1.0" radius="8.245000000000001" width="16.32">
+                               <color>
+                                   <Color red="0.800000011920929" green="0.800000011920929" blue="0.800000011920929" />
+                               </color>
+                           </DropShadow>
+                       </effect>
+                   </ListView>
+
+                    <Button fx:id="addExpenseButton" layoutX="483.6000061035156" layoutY="178.0" onAction="#addExpense" prefHeight="109.0" prefWidth="164.0" style="-fx-background-color: #e5def0; -fx-background-radius: 15;" text="Add Expense">
+                        <font>
+                            <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                        <padding>
+                            <Insets top="30.0" />
+                        </padding>
+                    </Button>
+                    <Button fx:id="viewStatisticsButton" layoutX="483.6000061035156" layoutY="297.0" onAction="#showStatisticsPage" prefHeight="109.0" prefWidth="164.0" style="-fx-background-color: #e5f1fd; -fx-background-radius: 15;" text="View Statistics">
+                        <font>
+                            <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                        <padding>
+                            <Insets top="29.0" />
+                        </padding>
+                    </Button>
+                    <Button fx:id="settleDebtsButton" layoutX="483.6000061035156" layoutY="418.0" onAction="#settleDebts" prefHeight="109.0" prefWidth="164.0" style="-fx-background-color: #f6f0d8; -fx-background-radius: 15;" text="Settle Debts">
+                        <font>
+                            <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                        <padding>
+                            <Insets top="30.0" />
+                        </padding>
+                    </Button>
+                    <AnchorPane fx:id="addExpenseImageGroup" layoutX="546.0" layoutY="193.0" onMouseClicked="#addExpense">
+                        <children>
+                            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="41.0" stroke="WHITE" strokeType="INSIDE" width="39.0" />
+                            <ImageView fx:id="addExpenseImage" fitHeight="31.0" fitWidth="26.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../money_black.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane layoutX="548.0" layoutY="313.0" onMouseClicked="#showStatisticsPage">
+                        <children>
+                            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="41.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="39.0" />
+                            <ImageView fx:id="statisticsImage" fitHeight="24.0" fitWidth="24.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../statistics.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane layoutX="547.0" layoutY="70.0" onMouseClicked="#sendInvites">
+                        <children>
+                            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="41.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="39.0" />
+                            <ImageView fx:id="inviteImage" fitHeight="22.0" fitWidth="22.0" layoutX="9.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../invite.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane layoutX="538.0" layoutY="441.0" onMouseClicked="#settleDebts" prefWidth="51.0">
+                        <children>
+                            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="41.0" layoutX="12.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" width="39.0" />
+                            <ImageView fx:id="settleDebtsImage" fitHeight="24.0" fitWidth="24.0" layoutX="17.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../icons8-money-90.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <HBox alignment="CENTER_RIGHT" layoutX="453.0" layoutY="30.0" prefHeight="16.0" prefWidth="194.0" spacing="10.0">
+                        <children>
+                            <Label fx:id="inviteCodeHeader" text="Invite code:" textAlignment="RIGHT" textFill="#101851">
+                                <font>
+                                    <Font name="Century Gothic" size="13.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="inviteCode" alignment="CENTER_RIGHT" text="dfbafbafb" textAlignment="RIGHT">
+                                <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="648.0">
+                        <children>
+                            <Label fx:id="eventTitle" onMouseClicked="#backToStart" onMouseEntered="#hoverEnter" onMouseExited="#hoverExit" styleClass="header" stylesheets="/EventOverview.css" text="New Year Party">
+                                <font>
+                                    <Font name="Roboto Black" size="30.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                    <AnchorPane fx:id="backToStartScreenButton" layoutX="15.0" onMouseClicked="#backToStart">
+                        <children>
+                            <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.62" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+                            <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../back.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

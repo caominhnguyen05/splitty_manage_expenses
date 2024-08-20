@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="biggestPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="665.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.InvitationViewCtrl">
+    <children>
+        <HBox alignment="CENTER" layoutX="167.1999969482422" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="eventName" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#back" text="New Year Party" textAlignment="CENTER">
+                    <font>
+                        <Font name="Roboto Black" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+      <HBox alignment="CENTER" layoutY="11.199999809265137" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane>
+               <children>
+                    <ImageView fx:id="mainImage" fitHeight="175.0" fitWidth="325.0" layoutX="176.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../invite_people.png" />
+                        </image>
+                    </ImageView>
+                    <HBox alignment="CENTER" layoutY="47.80000019073486" prefHeight="26.0" prefWidth="665.0" spacing="8.0">
+                        <children>
+                            <Label fx:id="givePeopleInviteCode" prefHeight="26.0" text="Give people the following invite code: ">
+                                <font>
+                                    <Font name="Century Gothic" size="16.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" layoutX="2.0" layoutY="111.99999713897705" prefHeight="46.0" prefWidth="665.0">
+                        <children>
+                            <Label fx:id="invitePeopleByEmail" alignment="TOP_LEFT" maxWidth="438.0" prefHeight="45.0" prefWidth="302.0" text="Invite the following people by email (one address per line):" textAlignment="CENTER" wrapText="true">
+                                <font>
+                                    <Font name="Century Gothic" size="16.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                    <HBox layoutX="482.6000061035156" layoutY="470.80000019073486" spacing="10.0" />
+                    <JFXTextArea fx:id="emailTextBox" layoutX="153.60000610351562" layoutY="157.80000019073486" prefHeight="190.0" prefWidth="359.0" style="-fx-background-color: white; -fx-border-color: #dfdfdf; -fx-border-width: 2; -fx-background-radius: 15; -fx-border-radius: 15;" wrapText="true">
+                        <padding>
+                            <Insets bottom="28.0" left="12.0" top="12.0" />
+                        </padding>
+                        <font>
+                            <Font name="Century Gothic" size="14.0" />
+                        </font>
+                    </JFXTextArea>
+                    <HBox alignment="CENTER" layoutX="2.0" layoutY="75.99999713897705" prefHeight="30.0" prefWidth="665.0">
+                        <children>
+                        <HBox fx:id="inviteCodeBox" alignment="CENTER" prefHeight="30.0" prefWidth="226.0" spacing="15.0" style="-fx-background-color: #fff3de; -fx-background-radius: 15;">
+                           <children>
+                                  <Label fx:id="inviteCodeLabel" alignment="CENTER" prefHeight="30.0" text="ABC">
+                                      <font>
+                                          <Font name="Century Gothic Bold" size="16.0" />
+                                      </font>
+                                  </Label>
+                              <ImageView fx:id="copyButton" fitHeight="20.0" fitWidth="16.0" onMouseClicked="#copyCode" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../copy.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        </children>
+                    </HBox>
+                    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="372.6000061035156" layoutY="318.80000019073486" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../send_invite.png" />
+                        </image>
+                    </ImageView>
+                    <!--      <Button fx:id="button" layoutX="341.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonClicked" text="Send Invites" />-->
+                    <Label fx:id="feedbackLabel" alignment="TOP_LEFT" layoutX="153.60000610351562" layoutY="353.80000019073486" maxWidth="-Infinity" prefHeight="50.0" prefWidth="359.0" wrapText="true">
+                        <font>
+                            <Font name="Century Gothic" size="13.0" />
+                        </font>
+                  </Label>
+                    <HBox alignment="CENTER_RIGHT" layoutX="502.6000061035156" layoutY="508.80000019073486" prefHeight="58.0" prefWidth="161.0" spacing="10.0">
+                        <children>
+                            <JFXToggleButton fx:id="contrastToggle" prefHeight="58.0" prefWidth="158.0" style="-fx-background-color: #FFFFFF;" text="High contrast" wrapText="true">
+                                <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                </font>
+                            </JFXToggleButton>
+                        </children>
+                    </HBox>
+                    <AnchorPane fx:id="backToStartScreenButton" layoutX="24.0" onMouseClicked="#back">
+                        <children>
+                            <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.63" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+                            <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../back.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                  <HBox alignment="CENTER_RIGHT" layoutY="315.0" prefHeight="27.0" prefWidth="666.0">
+                     <children>
+                          <HBox fx:id="button" alignment="CENTER" minWidth="138.0" onDragDetected="#sendInviteButtonClicked" prefHeight="27.0" spacing="8.0" style="-fx-background-color: #1b47d4; -fx-background-radius: 15;">
+                              <children>
+                                  <ImageView fx:id="sendIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../send_invite.png" />
+                                      </image>
+                                  </ImageView>
+                                  <Label fx:id="sendInvitesLabel" alignment="CENTER_RIGHT" text="Send Invites" textAlignment="RIGHT" textFill="WHITE">
+                                      <font>
+                                          <Font name="Century Gothic Bold" size="13.0" />
+                                      </font>
+                                  </Label>
+                              </children>
+                              <padding>
+                                  <Insets left="8.0" right="8.0" />
+                              </padding>
+                          </HBox>
+                     </children>
+                     <padding>
+                        <Insets right="160.0" />
+                     </padding>
+                  </HBox>
+                  <Label fx:id="copiedLabel" layoutX="452.0" layoutY="84.0" text="Copied!" textFill="#ff725e">
+                     <font>
+                        <Font name="Century Gothic Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

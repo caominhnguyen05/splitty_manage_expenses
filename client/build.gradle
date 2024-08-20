@@ -1,0 +1,85 @@
+plugins {
+    id 'application'
+    id("org.openjfx.javafxplugin") version "0.0.11"
+}
+
+application {
+    mainClass = 'client.Main'
+}
+
+javafx {
+    version = "21.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+java {
+	sourceCompatibility = '21'
+}
+
+
+dependencies {
+	implementation project(":commons")
+	
+	implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '3.0.3'
+	implementation group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '3.0.3'
+	implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '3.0.3'
+	
+	implementation group: 'jakarta.activation', name: 'jakarta.activation-api', version: '2.0.1'
+	implementation group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.1.0'
+
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0'
+	
+	implementation 'com.google.inject:guice:5.0.1'
+	
+	implementation 'org.openjfx:javafx-controls:21.0.2'
+	implementation 'org.openjfx:javafx-fxml:21.0.2'
+
+	testImplementation 'org.mockito:mockito-junit-jupiter:5.7.0'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+	testImplementation 'org.mockito:mockito-core:4.1.0'
+
+	testImplementation 'org.testfx:testfx-junit:4.0+'
+	testImplementation 'org.testfx:testfx-core:4.0.17-alpha'
+	testImplementation 'org.testfx:testfx-junit:4.0.17-alpha'
+	testImplementation 'org.testfx:openjfx-monocle:21.0.2'
+
+	implementation 'org.openjfx:javafx-controls:21.0.2'
+	implementation 'org.openjfx:javafx-fxml:21.0.2'
+
+	testImplementation 'org.mockito:mockito-core:5.11.0'
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.11.0'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+	testImplementation 'org.testfx:testfx-junit:4.0+'
+	testImplementation group: 'org.testfx', name: 'testfx-core', version: '4.0.18'
+	testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
+	testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
+}
+
+dependencies {
+	implementation 'com.jfoenix:jfoenix:9.0.10'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'io.github.palexdev:materialfx:11.17.0'
+}
+
+
+dependencies {
+	testImplementation "org.testfx:testfx-core:4.0.18"
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+	testImplementation "org.testfx:testfx-junit5:4.0.18"
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.1'
+}

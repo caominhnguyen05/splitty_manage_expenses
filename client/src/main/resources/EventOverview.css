@@ -1,0 +1,11 @@
+@import "/fonts/Fonts.css";
+
+.root {
+    /*-fx-font-family: "Open Sans SemiBold";*/
+    -fx-text-fill: red;
+}
+
+.header {
+    -fx-font-family: "Open Sans Bold";
+    /*-fx-text-fill: red;*/
+}

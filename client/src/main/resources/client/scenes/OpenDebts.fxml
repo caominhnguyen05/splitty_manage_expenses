@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="biggestPane" prefHeight="579.0" prefWidth="665.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.OpenDebtsCtrl">
+
+   <children>
+      <HBox alignment="CENTER" layoutY="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="openDebtsTitle" onMouseClicked="#back" text="Open Debts">
+               <font>
+                  <Font name="Century Gothic Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="14.399999618530273" layoutY="11.199999809265137" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane>
+               <children>
+            
+                  <Accordion fx:id="accordion" layoutX="8.80000114440918" layoutY="157.80000019073486" prefHeight="286.0" prefWidth="303.0" />
+                  <HBox alignment="CENTER_LEFT" layoutY="90.80000019073486" maxWidth="642.0" prefHeight="32.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="input" minWidth="154.0" prefHeight="32.0" prefWidth="216.0" promptText="Debtor Name" style="-fx-background-radius: 13;">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="seeDebtsButton" minWidth="109.0" mnemonicParsing="false" onAction="#onNewDebtor" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: #000080; -fx-background-radius: 13;" text="See Debts" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="errorMSG" prefHeight="18.0">
+                           <font>
+                              <Font name="Century Gothic Italic" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutY="55.80000019073486" spacing="10.0">
+                     <children>
+                        <Label fx:id="availableParticipants" text="Available Debtors:">
+                           <font>
+                              <Font name="Century Gothic Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="creditorsList" prefHeight="18.0" prefWidth="284.0">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="sumDebts" layoutX="8.80000114440918" layoutY="134.80000019073486" prefHeight="18.0" prefWidth="268.0">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Accordion fx:id="accordion1" layoutX="325.6000003814697" layoutY="157.80000019073486" prefHeight="286.0" prefWidth="310.0" />
+                  <Label fx:id="sumCredits" layoutX="325.6000003814697" layoutY="134.80000019073486" prefHeight="18.0" prefWidth="268.0">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane fx:id="backToStartScreenButton" layoutX="8.0" onMouseClicked="#backToOverview">
+                     <children>
+                        <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.62" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+                        <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../back.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Pane fx:id="currencyImagePane" layoutX="11.0" layoutY="534.0">
+                     <children>
+      
+      
+                        <ImageView fx:id="currencyPicture" fitHeight="19.0" fitWidth="36.0" onMouseClicked="#showCurrenciesDialog" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+                  <ListView fx:id="listViewCurrencies" layoutX="51.0" layoutY="478.0" prefHeight="82.0" prefWidth="190.0" style="-fx-background-radius: 6;">
+                     <effect>
+                        <DropShadow height="18.66" offsetX="1.0" offsetY="1.0" radius="8.245000000000001" width="16.32">
+                           <color>
+                              <Color red="0.800000011920929" green="0.800000011920929" blue="0.800000011920929" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </ListView>
+                  <Button fx:id="paymentLogButton" layoutX="518.0" layoutY="3.0" minWidth="109.0" mnemonicParsing="false" onAction="#showPaymentLog" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: #000080; -fx-background-radius: 13;" text="Payment Log" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </Button>
+                  <HBox alignment="CENTER_RIGHT" layoutX="478.0" layoutY="505.0" prefHeight="58.0" prefWidth="171.0" spacing="10.0">
+                     <children>
+                        <JFXToggleButton fx:id="contrastToggle" prefHeight="58.0" prefWidth="158.0" style="-fx-background-color: #FFFFFF;" text="High contrast" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="contrast" />
+                           </toggleGroup>
+                        </JFXToggleButton>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="470.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="totalSum" prefHeight="26.0" style="-fx-font-size: 16;">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="12.0" right="12.0" top="2.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="paymentDialog" layoutX="127.0" layoutY="48.0" prefHeight="444.0" prefWidth="410.0" style="-fx-background-color: #EFEFEF; -fx-background-radius: 8px;" visible="false">
+         <children>
+            <ListView fx:id="logListView" layoutX="14.0" layoutY="47.0" prefHeight="350.0" prefWidth="383.0" />
+            <Label fx:id="paymentDialogLabel" alignment="CENTER" layoutX="-2.0" layoutY="10.0" onMouseClicked="#back" prefHeight="31.0" prefWidth="410.0" text="Payment Log" textAlignment="CENTER">
+               <font>
+                  <Font name="Century Gothic Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="closePaymentLogButton" layoutX="277.0" layoutY="405.0" minWidth="109.0" mnemonicParsing="false" onAction="#closePaymentLog" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: #000080; -fx-background-radius: 13;" text="Close" textFill="WHITE" AnchorPane.bottomAnchor="7.800000000000011" AnchorPane.rightAnchor="15.0">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

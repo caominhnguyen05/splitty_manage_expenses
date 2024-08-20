@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane fx:id="biggestPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="665.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.StatisticsCtrl">
+   <children>
+      <HBox alignment="CENTER" layoutX="278.3999938964844" layoutY="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="statisticsTitle" text="Statistics" textFill="#2b2b7e">
+               <font>
+                  <Font name="Century Gothic Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="eventTitle" text="Event Name">
+               <font>
+                  <Font name="Roboto Black" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="11.199999809265137" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane>
+               <children>
+                  <PieChart fx:id="pieChart" layoutX="145.0" layoutY="88.80000019073486" prefHeight="362.0" prefWidth="388.0" />
+                  <HBox alignment="CENTER" layoutY="463.0" prefHeight="30.0" prefWidth="662.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="totalCostOfEventHeader" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Cost of Event ">
+                           <font>
+                              <Font name="Century Gothic" size="20.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="totalCostLabel" alignment="CENTER" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #fff3de; -fx-background-radius: 15;" text="\$500">
+                           <font>
+                              <Font name="Century Gothic Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="463.0" layoutY="508.80000019073486" prefHeight="58.0" prefWidth="198.0" spacing="10.0">
+                     <children>
+                        <JFXToggleButton fx:id="contrastToggle" prefHeight="58.0" prefWidth="158.0" style="-fx-background-color: #FFFFFF;" text="High contrast" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </JFXToggleButton>
+                     </children>
+                  </HBox>
+                  <AnchorPane fx:id="backToStartScreenButton" layoutX="22.399999618530273" onMouseClicked="#back">
+                     <children>
+                        <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.62" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+                        <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../back.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+
+                  <HBox alignment="CENTER" layoutX="-1.0" layoutY="236.0" prefHeight="58.0" prefWidth="662.0">
+                     <children>
+                        <Label fx:id="warningSentence" prefHeight="52.0" prefWidth="349.0" text="There are no expeneses in the event. Add new expenses to view statistics." textAlignment="CENTER" textFill="#ff3a3a" visible="false" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+
+                  <ChoiceBox fx:id="whoChoiceBox" layoutX="22.0" layoutY="64.0" prefWidth="150.0" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

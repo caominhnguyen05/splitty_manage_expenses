@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="579.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.AdminViewCtrl">
+   <children>
+      <HBox alignment="CENTER" layoutX="284.0" layoutY="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="adminView" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#toStart" prefHeight="26.0" text="Admin View" textFill="#455a64">
+               <font>
+                  <Font name="Century Gothic Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="8.0" layoutY="98.0" prefHeight="475.0" prefWidth="652.0" style="-fx-background-radius: 4; -fx-border-radius: 4;">
+         <content>
+            <Accordion fx:id="eventsAccordion" prefHeight="471.0" prefWidth="652.0">
+              <panes>
+<!--                <TitledPane animated="false" text="Event 1">-->
+<!--                     <content>-->
+<!--                        <Pane prefHeight="438.0" prefWidth="583.0" minHeight="438.0">-->
+<!--                           <children>-->
+<!--                              <Label layoutX="14.0" layoutY="9.0" text="Event 1">-->
+<!--                                 <font>-->
+<!--                                    <Font name="System Bold" size="16.0" />-->
+<!--                                 </font>-->
+<!--                              </Label>-->
+<!--                              <Label layoutX="77.0" layoutY="13.0" text="- InviteCode" />-->
+<!--                              <Label layoutX="28.0" layoutY="45.0" text="Participants:" />-->
+<!--                              <Label layoutX="109.0" layoutY="45.0" text="John, Mikey, Aha" />-->
+<!--                              <Button layoutX="382.0" layoutY="18.0" mnemonicParsing="false" text="Download" />-->
+<!--                              <Button layoutX="507.0" layoutY="18.0" mnemonicParsing="false" text="Delete" />-->
+<!--                              <Label layoutX="17.0" layoutY="69.0" text="Expenses:" />-->
+<!--                              <ScrollPane layoutX="28.0" layoutY="87.0" prefHeight="155.0" prefWidth="533.0">-->
+<!--                                 <content>-->
+<!--                                    <Accordion prefHeight="151.0" prefWidth="518.0">-->
+<!--                                      <panes>-->
+<!--                                        <TitledPane animated="false" prefHeight="118.0" prefWidth="517.0" text="Expense 1 - $5, by John. [TYPE]">-->
+<!--                                          <content>-->
+<!--                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="38.0" prefWidth="530.0">-->
+<!--                                                   <children>-->
+<!--                                                      <Label layoutY="5.0" text="Debtor 1" />-->
+<!--                                                      <Label layoutY="23.0" text="Debtor 2" />-->
+<!--                                                      <Label layoutY="41.0" text="Debtor 3" />-->
+<!--                                                   </children>-->
+<!--                                                </AnchorPane>-->
+<!--                                          </content>-->
+<!--                                        </TitledPane>-->
+<!--                                        <TitledPane animated="false" text="Expense 2">-->
+<!--                                          <content>-->
+<!--                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--                                          </content>-->
+<!--                                        </TitledPane>-->
+<!--                                        <TitledPane animated="false" prefHeight="118.0" prefWidth="441.0" text="Expense 3">-->
+<!--                                          <content>-->
+<!--                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--                                          </content>-->
+<!--                                        </TitledPane>-->
+<!--                                      </panes>-->
+<!--                                    </Accordion>-->
+<!--                                 </content>-->
+<!--                              </ScrollPane>-->
+<!--                              <Label layoutX="16.0" layoutY="255.0" text="Payments" />-->
+<!--                              <ScrollPane layoutX="25.0" layoutY="276.0" prefHeight="148.0" prefWidth="533.0">-->
+<!--                                 <content>-->
+<!--                                    <Pane prefHeight="178.0" prefWidth="518.0">-->
+<!--                                       <children>-->
+<!--                                          <Label layoutX="14.0" layoutY="14.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="49.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="81.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="115.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="147.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                       </children>-->
+<!--                                    </Pane>-->
+<!--                                 </content>-->
+<!--                              </ScrollPane>-->
+<!--                           </children>-->
+<!--                        </Pane>-->
+<!--                     </content>-->
+<!--                  </TitledPane>-->
+<!--                <TitledPane animated="false" text="Event 2">-->
+<!--                     <content>-->
+<!--                        <Pane prefHeight="438.0" prefWidth="582.0" minHeight="438.0">-->
+<!--                           <children>-->
+<!--                              <Label layoutX="14.0" layoutY="9.0" text="Event 2">-->
+<!--                                 <font>-->
+<!--                                    <Font name="System Bold" size="16.0" />-->
+<!--                                 </font>-->
+<!--                              </Label>-->
+<!--                              <Label layoutX="77.0" layoutY="13.0" text="- InviteCode" />-->
+<!--                              <Label layoutX="28.0" layoutY="45.0" text="Participants:" />-->
+<!--                              <Label layoutX="109.0" layoutY="45.0" text="John, Mikey, Aha" />-->
+<!--                              <Button layoutX="382.0" layoutY="18.0" mnemonicParsing="false" text="Download" />-->
+<!--                              <Button layoutX="507.0" layoutY="18.0" mnemonicParsing="false" text="Delete" />-->
+<!--                              <Label layoutX="17.0" layoutY="69.0" text="Expenses:" />-->
+<!--                              <ScrollPane layoutX="28.0" layoutY="87.0" prefHeight="155.0" prefWidth="533.0">-->
+<!--                                 <content>-->
+<!--                                    <Accordion prefHeight="151.0" prefWidth="531.0">-->
+<!--                                       <panes>-->
+<!--                                          <TitledPane animated="false" prefHeight="118.0" prefWidth="517.0" text="Expense 1 - $5, by John. [TYPE]">-->
+<!--                                             <content>-->
+<!--                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="38.0" prefWidth="530.0">-->
+<!--                                                   <children>-->
+<!--                                                      <Label layoutY="5.0" text="Debtor 1" />-->
+<!--                                                      <Label layoutY="23.0" text="Debtor 2" />-->
+<!--                                                      <Label layoutY="41.0" text="Debtor 3" />-->
+<!--                                                   </children>-->
+<!--                                                </AnchorPane>-->
+<!--                                             </content>-->
+<!--                                          </TitledPane>-->
+<!--                                          <TitledPane animated="false" text="Expense 2">-->
+<!--                                             <content>-->
+<!--                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--                                             </content>-->
+<!--                                          </TitledPane>-->
+<!--                                          <TitledPane animated="false" prefHeight="118.0" prefWidth="441.0" text="Expense 3">-->
+<!--                                             <content>-->
+<!--                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+<!--                                             </content>-->
+<!--                                          </TitledPane>-->
+<!--                                       </panes>-->
+<!--                                    </Accordion>-->
+<!--                                 </content>-->
+<!--                              </ScrollPane>-->
+<!--                              <Label layoutX="16.0" layoutY="255.0" text="Payments" />-->
+<!--                              <ScrollPane layoutX="25.0" layoutY="276.0" prefHeight="148.0" prefWidth="533.0">-->
+<!--                                 <content>-->
+<!--                                    <Pane prefHeight="178.0" prefWidth="518.0">-->
+<!--                                       <children>-->
+<!--                                          <Label layoutX="14.0" layoutY="14.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="49.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="81.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="115.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                          <Label layoutX="14.0" layoutY="147.0" text="Payment 1 - $5, From john, to rahsida at 1/1/2011" />-->
+<!--                                       </children>-->
+<!--                                    </Pane>-->
+<!--                                 </content>-->
+<!--                              </ScrollPane>-->
+<!--                           </children>-->
+<!--                        </Pane>-->
+<!--                     </content>-->
+<!--                  </TitledPane>-->
+              </panes>
+            </Accordion>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" layoutY="42.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="orderEventsBy" text="Order Events by">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="orderCombo" prefHeight="26.0" prefWidth="150.0" />
+            <Button fx:id="orderButton" mnemonicParsing="false" onAction="#orderDirectionChange" prefHeight="28.0" style="-fx-background-color: #C5DBC4; -fx-background-radius: 13;" text="--&gt;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="restoreEventFromJSON" minWidth="165.0" mnemonicParsing="false" onAction="#restoreEvent" prefHeight="28.0" style="-fx-background-color: #E4F4E3; -fx-background-radius: 13;" text="Restore Event from JSON">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="jsonError" layoutX="380.2" layoutY="72.0" prefHeight="23.0" prefWidth="262.0" textFill="#ec5252" wrapText="true" AnchorPane.leftAnchor="380.2">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="backToStartScreenButton" layoutX="18.2" layoutY="8.0" onMouseClicked="#toStart" AnchorPane.leftAnchor="18.2" AnchorPane.topAnchor="8.0">
+         <children>
+            <Rectangle fx:id="backRectangle" arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="30.0" layoutY="6.0" opacity="0.62" stroke="#484545d6" strokeLineCap="ROUND" strokeType="INSIDE" width="34.0" />
+            <ImageView fx:id="backArrow" fitHeight="12.0" fitWidth="14.0" layoutX="11.0" layoutY="15.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
